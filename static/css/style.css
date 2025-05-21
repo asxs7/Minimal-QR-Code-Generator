@@ -1,0 +1,298 @@
+:root {
+    --dark-chocolate: #2C1810;
+    --beige: #E7DCCA;
+    --cream: #F5F1E9;
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cream);
+    color: var(--dark-chocolate);
+    font-family: 'Karla', sans-serif;
+    line-height: 1.6;
+    padding: 2rem;
+    min-height: 100vh;
+    opacity: 0;
+    animation: pageLoad 1s ease-out forwards;
+}
+
+@keyframes pageLoad {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: slideDown 1s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-family: 'Italiana', serif;
+    font-size: 2.5rem;
+    color: var(--dark-chocolate);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.meta {
+    font-size: 0.9rem;
+    color: var(--dark-chocolate);
+    opacity: 0.7;
+}
+
+.separator {
+    margin: 0 0.5rem;
+}
+
+.input-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(44, 24, 16, 0.05);
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    animation: fadeIn 1s ease-out;
+}
+
+.input-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(44, 24, 16, 0.08);
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--beige);
+    border-radius: 8px;
+    font-family: 'Karla', sans-serif;
+    font-size: 1rem;
+    color: var(--dark-chocolate);
+    background: var(--cream);
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--dark-chocolate);
+    background: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(44, 24, 16, 0.05);
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--dark-chocolate);
+    color: var(--cream);
+    font-family: 'Karla', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(44, 24, 16, 0.15);
+}
+
+.loading-container {
+    text-align: center;
+    padding: 2rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--beige);
+    border-top-color: var(--dark-chocolate);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.result-container {
+    animation: slideUp 0.5s ease-out;
+}
+
+.qr-frame {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(44, 24, 16, 0.05);
+}
+
+.qr-animation {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem;
+    animation: qrAppear 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes qrAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8) rotate(-5deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+.download-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.download-btn {
+    width: auto;
+    min-width: 200px;
+    padding: 0.8rem 1.5rem;
+    background: transparent;
+    color: var(--dark-chocolate);
+    border: 2px solid var(--dark-chocolate);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background: var(--dark-chocolate);
+    color: var(--cream);
+    transform: translateY(-2px);
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .input-card, .qr-frame {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+#qrCodeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+#qrCodeContainer img,
+#qrCodeContainer canvas {
+    margin: 0 auto;
+    display: block;
+}
+
+.meta {
+    font-size: 0.9rem;
+    color: var(--dark-chocolate);
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.qr-frame {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(44, 24, 16, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#qrCodeContainer img,
+#qrCodeContainer canvas {
+    animation: qrAppear 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.download-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    #qrCodeContainer img,
+    #qrCodeContainer canvas {
+        max-width: 200px;
+    }
+}
