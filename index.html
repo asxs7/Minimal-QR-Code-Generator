@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal QR Code Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Karla:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>QR Code Generator</h1>
+            <div class="meta">
+                <span id="timestamp">UTC: 2025-05-18 13:49:11</span>
+                <span class="separator">•</span>
+                <span id="user">asxs7</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="input-card">
+                <form id="qrForm">
+                    <div class="input-group">
+                        <input type="text" id="text" 
+                               placeholder="Enter text or URL" required>
+                    </div>
+                    <button type="submit">Generate QR Code</button>
+                </form>
+            </div>
+
+            <div id="loading" class="loading-container hidden">
+                <div class="loader"></div>
+                <span>Generating...</span>
+            </div>
+
+            <div id="result" class="result-container hidden">
+                <div class="qr-frame">
+                    <div id="qrCodeContainer"></div>
+                    <div class="download-container">
+                        <button onclick="downloadQR()" class="download-btn">
+                            Download QR Code
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="static/js/main.js"></script>
+</body>
+</html>
